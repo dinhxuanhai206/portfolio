@@ -154,84 +154,8 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Core Skills - Hexagon Grid Style */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-2">Core Competencies</h3>
-            <p className="text-gray-400">Technologies I work with daily</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {coreSkills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className={`group relative scroll-reveal stagger-${index + 1}`}
-                itemProp="itemListElement"
-                itemScope
-                itemType="https://schema.org/ListItem"
-              >
-                <meta itemProp="name" content={skill.name} />
-                <meta itemProp="description" content={skill.keywords} />
-                <meta itemProp="position" content={String(index + 1)} />
-
-                {/* Glow Effect */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${skill.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`}></div>
-
-                {/* Card */}
-                <div className="relative h-full glass-card-theme rounded-2xl p-6 border border-white/10 hover-card-lift overflow-hidden">
-                  {/* Background Pattern */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
-                    <div className={`w-full h-full bg-gradient-to-br ${skill.gradient} rounded-full blur-2xl`}></div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    {/* Icon & Title */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${skill.gradient} flex items-center justify-center text-3xl shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                        {skill.icon}
-                      </div>
-                      <div className="text-right">
-                        <div className={`text-4xl font-black bg-gradient-to-br ${skill.gradient} bg-clip-text text-transparent`}>
-                          {skill.level}
-                        </div>
-                        <div className="text-xs text-gray-500 font-medium">%</div>
-                      </div>
-                    </div>
-
-                    {/* Info */}
-                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-gradient-theme transition-colors">
-                      {skill.name}
-                    </h4>
-                    <p className="text-sm text-gray-400 mb-3">{skill.description}</p>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10">
-                        {skill.projects}
-                      </span>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="mt-4 relative h-1.5 bg-black/40 rounded-full overflow-hidden">
-                      <div
-                        className={`absolute inset-y-0 left-0 bg-gradient-to-r ${skill.gradient} rounded-full transition-all duration-1000 ease-out`}
-                        style={{ width: `${skill.level}%` }}
-                        role="progressbar"
-                        aria-valuenow={skill.level}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      >
-                        <div className="absolute inset-0 bg-white/30 shimmer"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Tech Stack - Tabbed Interface */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mb-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-2">Complete Tech Stack</h3>
             <p className="text-gray-400">Explore my full technology arsenal</p>

@@ -111,10 +111,10 @@ export default function AchievementSystem() {
 
   return (
     <>
-      {/* Achievement Button */}
+      {/* Achievement Button - Moved to left side, above game button */}
       <button
         onClick={() => setShowPanel(!showPanel)}
-        className="fixed bottom-24 right-6 z-50 glass-card-theme rounded-full p-3 hover-lift group relative"
+        className="fixed bottom-24 left-6 z-50 glass-card-theme rounded-full p-3 hover-lift group relative"
         title="View Achievements"
       >
         <span className="text-2xl group-hover:scale-110 transition-transform block">🏆</span>
@@ -125,9 +125,9 @@ export default function AchievementSystem() {
         )}
       </button>
 
-      {/* Achievement Panel */}
+      {/* Achievement Panel - Moved to left side */}
       {showPanel && (
-        <div className="fixed bottom-40 right-6 z-50 glass-card-theme rounded-xl p-4 w-80 max-h-96 overflow-y-auto">
+        <div className="fixed bottom-40 left-6 z-50 glass-card-theme rounded-xl p-4 w-80 max-h-96 overflow-y-auto">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg font-bold text-white">Achievements</h3>
             <button
@@ -184,9 +184,9 @@ export default function AchievementSystem() {
         </div>
       )}
 
-      {/* Achievement Notification */}
+      {/* Achievement Notification - Moved to top left */}
       {showNotification && (
-        <div className="fixed top-6 right-6 z-[200] glass-card-theme rounded-xl p-4 w-80 animate-slide-in-right glow-theme">
+        <div className="fixed top-6 left-6 z-[200] glass-card-theme rounded-xl p-4 w-80 animate-slide-in-right glow-theme">
           <div className="flex items-center gap-3">
             <span className="text-4xl">{showNotification.icon}</span>
             <div className="flex-1">

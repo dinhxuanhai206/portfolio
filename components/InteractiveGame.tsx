@@ -97,10 +97,10 @@ export default function InteractiveGame() {
 
   return (
     <>
-      {/* Floating Game Button */}
+      {/* Floating Game Button - Moved to left side */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 glass-card-theme rounded-full p-4 hover-lift glow-theme group"
+        className="fixed bottom-6 left-6 z-50 glass-card-theme rounded-full p-4 hover-lift glow-theme group"
         title="Play Mini Game!"
       >
         <span className="text-3xl group-hover:scale-110 transition-transform block">🎮</span>
