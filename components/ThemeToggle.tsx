@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-type Theme = 'gold' | 'white' | 'blue' | 'dark';
+type Theme = 'gold' | 'green' | 'blue' | 'red';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>('gold');
@@ -37,9 +37,9 @@ export default function ThemeToggle() {
 
   const themes = [
     { name: 'gold', icon: '✨', label: 'Gold', color: 'from-yellow-400 to-amber-500' },
-    { name: 'white', icon: '🤍', label: 'White', color: 'from-gray-100 to-gray-300' },
+    { name: 'green', icon: '💚', label: 'Green', color: 'from-green-400 to-emerald-500' },
     { name: 'blue', icon: '💙', label: 'Blue', color: 'from-blue-400 to-cyan-500' },
-    { name: 'dark', icon: '🖤', label: 'Dark', color: 'from-gray-800 to-gray-900' },
+    { name: 'red', icon: '❤️', label: 'Red', color: 'from-red-400 to-rose-500' },
   ];
 
   return (

@@ -19,12 +19,12 @@
     --bg-end: 26, 20, 16;
   }
   
-  [data-theme="white"] {
-    --primary: 100, 116, 139;
-    --secondary: 15, 23, 42;
-    --accent: 148, 163, 184;
-    --bg-start: 248, 250, 252;
-    --bg-end: 226, 232, 240;
+  [data-theme="green"] {
+    --primary: 34, 197, 94;
+    --secondary: 134, 239, 172;
+    --accent: 74, 222, 128;
+    --bg-start: 0, 20, 10;
+    --bg-end: 6, 78, 59;
   }
   
   [data-theme="blue"] {
@@ -35,12 +35,12 @@
     --bg-end: 15, 23, 42;
   }
   
-  [data-theme="dark"] {
-    --primary: 156, 163, 175;
-    --secondary: 229, 231, 235;
-    --accent: 107, 114, 128;
-    --bg-start: 0, 0, 0;
-    --bg-end: 17, 24, 39;
+  [data-theme="red"] {
+    --primary: 239, 68, 68;
+    --secondary: 252, 165, 165;
+    --accent: 248, 113, 113;
+    --bg-start: 20, 0, 0;
+    --bg-end: 127, 29, 29;
   }
   
   body {
@@ -63,6 +63,15 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Theme-aware text color */
+  .text-theme {
+    color: rgb(var(--primary));
+  }
+  
+  .text-theme-secondary {
+    color: rgb(var(--secondary));
   }
   
   @keyframes gradient-flow {

@@ -81,7 +81,7 @@ export default function Projects() {
           <span className="text-white/40 text-sm tracking-[0.3em] uppercase mb-4 block">
             Professional Journey
           </span>
-          <h2 className="text-5xl md:text-7xl font-bold text-gradient-premium mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gradient-theme mb-6">
             Work Experience
           </h2>
           <p className="text-white/50 text-lg max-w-2xl mx-auto">
