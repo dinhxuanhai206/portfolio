@@ -1,31 +1,43 @@
 'use client';
 
 import { useState } from 'react';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import PersonIcon from '@mui/icons-material/Person';
+import MessageIcon from '@mui/icons-material/Message';
+import SendIcon from '@mui/icons-material/Send';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PublicIcon from '@mui/icons-material/Public';
+import WorkIcon from '@mui/icons-material/Work';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import BoltIcon from '@mui/icons-material/Bolt';
 
 const contactMethods = [
   {
-    icon: '📧',
+    icon: EmailIcon,
     title: 'Email',
     value: 'dinhxuanhai206@gmail.com',
     href: 'mailto:dinhxuanhai206@gmail.com',
     gradient: 'from-purple-500 to-pink-500',
   },
   {
-    icon: '📱',
+    icon: PhoneIcon,
     title: 'Phone',
     value: '0353432512',
     href: 'tel:0353432512',
     gradient: 'from-green-500 to-emerald-500',
   },
   {
-    icon: '💼',
+    icon: LinkedInIcon,
     title: 'LinkedIn',
     value: 'hai20062000',
     href: 'https://www.linkedin.com/in/hai20062000',
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
-    icon: '💻',
+    icon: GitHubIcon,
     title: 'GitHub',
     value: 'dinhxuanhai',
     href: 'https://github.com/dinhxuanhai',
@@ -102,8 +114,8 @@ export default function Contact() {
             <div className="relative glass-card-theme rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 border border-white/10 backdrop-blur-xl w-full overflow-hidden">
               <div className="mb-6 sm:mb-8 md:mb-10">
                 <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
-                    ✉️
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg flex-shrink-0">
+                    <EmailIcon className="text-white" sx={{ fontSize: { xs: 20, sm: 24 } }} />
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white truncate">Send Message</h3>
@@ -116,7 +128,7 @@ export default function Contact() {
                 {/* Name Input - Mobile Optimized */}
                 <div className="group/input relative">
                   <label className="block text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2">
-                    <span className="text-base sm:text-lg">👤</span>
+                    <PersonIcon sx={{ fontSize: { xs: 16, sm: 18 } }} />
                     <span>Your Name</span>
                   </label>
                   <div className="relative">
@@ -136,7 +148,7 @@ export default function Contact() {
                 {/* Email Input - Mobile Optimized */}
                 <div className="group/input relative">
                   <label className="block text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2">
-                    <span className="text-base sm:text-lg">📧</span>
+                    <EmailIcon sx={{ fontSize: { xs: 16, sm: 18 } }} />
                     <span>Your Email</span>
                   </label>
                   <div className="relative">
@@ -155,7 +167,7 @@ export default function Contact() {
                 {/* Message Input - Mobile Optimized */}
                 <div className="group/input relative">
                   <label className="block text-white/90 mb-2 sm:mb-3 text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2">
-                    <span className="text-base sm:text-lg">💬</span>
+                    <MessageIcon sx={{ fontSize: { xs: 16, sm: 18 } }} />
                     <span>Your Message</span>
                   </label>
                   <div className="relative">
@@ -192,9 +204,7 @@ export default function Contact() {
                     ) : (
                       <>
                         <span>Send Message</span>
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6 group-hover/btn:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                        <SendIcon className="group-hover/btn:translate-x-2 transition-transform duration-300" sx={{ fontSize: { xs: 20, sm: 24 } }} />
                       </>
                     )}
                   </span>
@@ -208,8 +218,8 @@ export default function Contact() {
             {/* Main Contact Card - Mobile Optimized */}
             <div className="glass-card-theme rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10 backdrop-blur-xl">
               <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
-                  📞
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg flex-shrink-0">
+                  <ContactPhoneIcon className="text-white" sx={{ fontSize: { xs: 20, sm: 24 } }} />
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">Contact Info</h3>
@@ -218,57 +228,60 @@ export default function Contact() {
               </div>
               
               <div className="space-y-2 sm:space-y-3">
-                {contactMethods.map((method, idx) => (
-                  <a
-                    key={method.title}
-                    href={method.href}
-                    target={method.href.startsWith('http') ? '_blank' : undefined}
-                    rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="group/card flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl bg-black/20 border border-white/5 hover:border-white/20 hover:bg-black/30 transition-all duration-300 hover-card-lift"
-                    style={{ animationDelay: `${idx * 100}ms` }}
-                  >
-                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${method.gradient} flex items-center justify-center text-xl sm:text-2xl shadow-lg group-hover/card:scale-110 transition-transform duration-300 flex-shrink-0`}>
-                      {method.icon}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs text-gray-400 mb-0.5 sm:mb-1 font-medium uppercase tracking-wider">{method.title}</div>
-                      <div className="text-sm sm:text-base text-white font-semibold group-hover/card:text-gradient-theme transition-colors truncate">
-                        {method.value}
+                {contactMethods.map((method, idx) => {
+                  const IconComponent = method.icon;
+                  return (
+                    <a
+                      key={method.title}
+                      href={method.href}
+                      target={method.href.startsWith('http') ? '_blank' : undefined}
+                      rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="group/card flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl bg-black/20 border border-white/5 hover:border-white/20 hover:bg-black/30 transition-all duration-300 hover-card-lift"
+                      style={{ animationDelay: `${idx * 100}ms` }}
+                    >
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${method.gradient} flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                        <IconComponent className="text-white" sx={{ fontSize: { xs: 24, sm: 28 } }} />
                       </div>
-                    </div>
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/card:text-white group-hover/card:translate-x-2 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                ))}
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs text-gray-400 mb-0.5 sm:mb-1 font-medium uppercase tracking-wider">{method.title}</div>
+                        <div className="text-sm sm:text-base text-white font-semibold group-hover/card:text-gradient-theme transition-colors truncate">
+                          {method.value}
+                        </div>
+                      </div>
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/card:text-white group-hover/card:translate-x-2 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
             {/* Quick Info Card - Mobile Optimized */}
             <div className="glass-card-theme rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10 backdrop-blur-xl">
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
-                  ⚡
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-lg flex-shrink-0">
+                  <BoltIcon className="text-white" sx={{ fontSize: { xs: 18, sm: 20 } }} />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-white">Quick Info</h3>
               </div>
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-black/20">
-                  <span className="text-xl sm:text-2xl flex-shrink-0">⏰</span>
+                  <AccessTimeIcon className="text-white/80 flex-shrink-0" sx={{ fontSize: { xs: 24, sm: 28 } }} />
                   <div className="min-w-0">
                     <div className="text-sm sm:text-base text-white font-medium mb-0.5 sm:mb-1">Response Time</div>
                     <div className="text-xs sm:text-sm text-gray-400">Within 24 hours</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-black/20">
-                  <span className="text-xl sm:text-2xl flex-shrink-0">🌍</span>
+                  <PublicIcon className="text-white/80 flex-shrink-0" sx={{ fontSize: { xs: 24, sm: 28 } }} />
                   <div className="min-w-0">
                     <div className="text-sm sm:text-base text-white font-medium mb-0.5 sm:mb-1">Location</div>
                     <div className="text-xs sm:text-sm text-gray-400">Vietnam (GMT+7)</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-black/20">
-                  <span className="text-xl sm:text-2xl flex-shrink-0">💼</span>
+                  <WorkIcon className="text-white/80 flex-shrink-0" sx={{ fontSize: { xs: 24, sm: 28 } }} />
                   <div className="min-w-0">
                     <div className="text-sm sm:text-base text-white font-medium mb-0.5 sm:mb-1">Availability</div>
                     <div className="text-xs sm:text-sm text-green-400 font-semibold">Open for opportunities</div>
