@@ -130,7 +130,7 @@ export default function AchievementSystem() {
 
       {/* Achievement Panel - Compact & Mobile Optimized */}
       {showPanel && (
-        <div className="fixed bottom-32 sm:bottom-40 left-4 sm:left-6 z-50 glass-card-theme rounded-xl p-3 sm:p-4 w-[calc(100vw-2rem)] sm:w-72 md:w-80 max-h-[60vh] sm:max-h-96 overflow-y-auto shadow-2xl border border-white/10">
+        <div className="fixed bottom-32 sm:bottom-40 left-4 sm:left-6 z-50 rounded-xl p-3 sm:p-4 w-[calc(100vw-2rem)] sm:w-72 md:w-80 max-h-[60vh] sm:max-h-96 overflow-y-auto shadow-2xl border border-white/20 bg-black/90 backdrop-blur-xl">
           {/* Header - Compact */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
@@ -166,8 +166,8 @@ export default function AchievementSystem() {
               return (
                 <div
                   key={achievement.id}
-                  className={`glass-theme rounded-lg p-2 sm:p-2.5 transition-all ${
-                    isUnlocked ? 'opacity-100 border border-yellow-400/20' : 'opacity-40'
+                  className={`rounded-lg p-2 sm:p-2.5 transition-all bg-white/5 backdrop-blur-sm ${
+                    isUnlocked ? 'opacity-100 border border-yellow-400/30' : 'opacity-40 border border-white/10'
                   }`}
                 >
                   <div className="flex items-center gap-2 sm:gap-3">
@@ -193,7 +193,7 @@ export default function AchievementSystem() {
 
       {/* Achievement Notification - Compact & Mobile Optimized */}
       {showNotification && (
-        <div className="fixed top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-auto z-[200] glass-card-theme rounded-xl p-3 sm:p-4 sm:w-72 md:w-80 animate-slide-in-right shadow-2xl border border-yellow-400/30">
+        <div className="fixed top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-auto z-[200] rounded-xl p-3 sm:p-4 sm:w-72 md:w-80 animate-slide-in-right shadow-2xl border border-yellow-400/40 bg-black/90 backdrop-blur-xl">
           <div className="flex items-center gap-2 sm:gap-3">
             <span className="text-3xl sm:text-4xl flex-shrink-0">{showNotification.icon}</span>
             <div className="flex-1 min-w-0">
