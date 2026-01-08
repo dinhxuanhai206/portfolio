@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import CloseIcon from '@mui/icons-material/Close';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface Achievement {
   id: string;
@@ -22,32 +25,32 @@ const achievements: Achievement[] = [
   },
   {
     id: 'curious',
-    title: 'Curious Mind',
-    description: 'Clicked on 5 projects',
+    title: 'Curious',
+    description: 'Clicked 5 projects',
     icon: '🔍',
     unlocked: false,
     trigger: 'project-click',
   },
   {
     id: 'gamer',
-    title: 'Skill Hunter',
-    description: 'Played the mini game',
+    title: 'Gamer',
+    description: 'Played mini game',
     icon: '🎮',
     unlocked: false,
     trigger: 'game-played',
   },
   {
     id: 'theme-master',
-    title: 'Theme Master',
-    description: 'Changed theme 3 times',
+    title: 'Stylist',
+    description: 'Changed theme 3x',
     icon: '🎨',
     unlocked: false,
     trigger: 'theme-change',
   },
   {
     id: 'contact',
-    title: 'Let\'s Connect',
-    description: 'Opened contact form',
+    title: 'Social',
+    description: 'Opened contact',
     icon: '📧',
     unlocked: false,
     trigger: 'contact-open',
@@ -81,16 +84,13 @@ export default function AchievementSystem() {
       const achievementId = e.detail.id;
       
       setUnlockedAchievements(prev => {
-        // Check if already unlocked
         if (prev.includes(achievementId)) {
           return prev;
         }
 
-        // Add new achievement
         const newUnlocked = [...prev, achievementId];
         localStorage.setItem('portfolio-achievements', JSON.stringify(newUnlocked));
 
-        // Show notification
         const achievement = achievements.find(a => a.id === achievementId);
         if (achievement) {
           setShowNotification(achievement);
@@ -111,40 +111,47 @@ export default function AchievementSystem() {
 
   return (
     <>
-      {/* Achievement Button - Moved to left side, above game button */}
+      {/* Achievement Button - Compact & Responsive */}
       <button
         onClick={() => setShowPanel(!showPanel)}
-        className="fixed bottom-24 left-6 z-50 glass-card-theme rounded-full p-3 hover-lift group relative"
-        title="View Achievements"
+        className="fixed bottom-20 sm:bottom-24 left-4 sm:left-6 z-50 glass-card-theme rounded-full p-2 sm:p-3 hover-lift group relative shadow-lg"
+        title="Achievements"
       >
-        <span className="text-2xl group-hover:scale-110 transition-transform block">🏆</span>
+        <EmojiEventsIcon 
+          className="text-yellow-400 group-hover:scale-110 transition-transform" 
+          sx={{ fontSize: { xs: 24, sm: 28 } }}
+        />
         {unlockedAchievements.length > 0 && (
-          <span className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-[10px] sm:text-xs">
             {unlockedAchievements.length}
           </span>
         )}
       </button>
 
-      {/* Achievement Panel - Moved to left side */}
+      {/* Achievement Panel - Compact & Mobile Optimized */}
       {showPanel && (
-        <div className="fixed bottom-40 left-6 z-50 glass-card-theme rounded-xl p-4 w-80 max-h-96 overflow-y-auto">
+        <div className="fixed bottom-32 sm:bottom-40 left-4 sm:left-6 z-50 glass-card-theme rounded-xl p-3 sm:p-4 w-[calc(100vw-2rem)] sm:w-72 md:w-80 max-h-[60vh] sm:max-h-96 overflow-y-auto shadow-2xl border border-white/10">
+          {/* Header - Compact */}
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg font-bold text-white">Achievements</h3>
+            <div className="flex items-center gap-2">
+              <EmojiEventsIcon className="text-yellow-400" sx={{ fontSize: 20 }} />
+              <h3 className="text-base sm:text-lg font-bold text-white">Achievements</h3>
+            </div>
             <button
               onClick={() => setShowPanel(false)}
-              className="text-white/60 hover:text-white"
+              className="text-white/60 hover:text-white p-1 hover:bg-white/10 rounded-lg transition-all"
             >
-              ✕
+              <CloseIcon sx={{ fontSize: 18 }} />
             </button>
           </div>
 
-          {/* Progress Bar */}
-          <div className="mb-4">
+          {/* Progress Bar - Compact */}
+          <div className="mb-3">
             <div className="flex justify-between text-xs text-gray-400 mb-1">
               <span>Progress</span>
-              <span>{unlockedAchievements.length}/{achievements.length}</span>
+              <span className="font-semibold">{unlockedAchievements.length}/{achievements.length}</span>
             </div>
-            <div className="h-2 bg-black/30 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-black/30 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 transition-all duration-500"
                 style={{ width: `${progress}%` }}
@@ -152,29 +159,29 @@ export default function AchievementSystem() {
             </div>
           </div>
 
-          {/* Achievement List */}
-          <div className="space-y-2">
+          {/* Achievement List - Compact */}
+          <div className="space-y-1.5">
             {achievements.map(achievement => {
               const isUnlocked = unlockedAchievements.includes(achievement.id);
               return (
                 <div
                   key={achievement.id}
-                  className={`glass-theme rounded-lg p-3 transition-all ${
-                    isUnlocked ? 'opacity-100' : 'opacity-40'
+                  className={`glass-theme rounded-lg p-2 sm:p-2.5 transition-all ${
+                    isUnlocked ? 'opacity-100 border border-yellow-400/20' : 'opacity-40'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{achievement.icon}</span>
-                    <div className="flex-1">
-                      <div className="text-sm font-bold text-white">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <span className="text-xl sm:text-2xl flex-shrink-0">{achievement.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs sm:text-sm font-bold text-white truncate">
                         {achievement.title}
                       </div>
-                      <div className="text-xs text-gray-400">
+                      <div className="text-[10px] sm:text-xs text-gray-400 truncate">
                         {achievement.description}
                       </div>
                     </div>
                     {isUnlocked && (
-                      <span className="text-green-400 text-lg">✓</span>
+                      <CheckCircleIcon className="text-green-400 flex-shrink-0" sx={{ fontSize: 18 }} />
                     )}
                   </div>
                 </div>
@@ -184,19 +191,19 @@ export default function AchievementSystem() {
         </div>
       )}
 
-      {/* Achievement Notification - Moved to top left */}
+      {/* Achievement Notification - Compact & Mobile Optimized */}
       {showNotification && (
-        <div className="fixed top-6 left-6 z-[200] glass-card-theme rounded-xl p-4 w-80 animate-slide-in-right glow-theme">
-          <div className="flex items-center gap-3">
-            <span className="text-4xl">{showNotification.icon}</span>
-            <div className="flex-1">
-              <div className="text-yellow-400 text-xs font-bold mb-1">
-                🎉 Achievement Unlocked!
+        <div className="fixed top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-auto z-[200] glass-card-theme rounded-xl p-3 sm:p-4 sm:w-72 md:w-80 animate-slide-in-right shadow-2xl border border-yellow-400/30">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="text-3xl sm:text-4xl flex-shrink-0">{showNotification.icon}</span>
+            <div className="flex-1 min-w-0">
+              <div className="text-yellow-400 text-[10px] sm:text-xs font-bold mb-0.5 sm:mb-1">
+                🎉 Achievement!
               </div>
-              <div className="text-white font-bold">
+              <div className="text-white font-bold text-sm sm:text-base truncate">
                 {showNotification.title}
               </div>
-              <div className="text-gray-400 text-xs">
+              <div className="text-gray-400 text-xs sm:text-sm truncate">
                 {showNotification.description}
               </div>
             </div>
